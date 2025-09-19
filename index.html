@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starship OS</title>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-gray-900;
+          background-color: #0c1424;
+          background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="50" cy="50" r="0.5" /%3E%3Ccircle cx="10" cy="10" r="0.5" /%3E%3Ccircle cx="90" cy="30" r="0.75" /%3E%3Ccircle cx="30" cy="80" r="0.5" /%3E%3Ccircle cx="70" cy="60" r="0.75" /%3E%3Ccircle cx="20" cy="40" r="0.5" /%3E%3Ccircle cx="80" cy="90" r="0.5" /%3E%3C/g%3E%3C/svg%3E');
+        }
+      }
+      @layer utilities {
+        /* Define classes the LLM is instructed to use, applying Tailwind's styles */
+        .llm-button {
+          @apply bg-blue-600 text-white border-none rounded-md py-2 px-4 m-2 cursor-pointer text-base font-medium text-center transition-colors hover:bg-blue-700 active:bg-blue-800 active:transform active:translate-y-px;
+        }
+        .llm-text {
+          @apply m-2 text-base text-gray-200 leading-relaxed;
+        }
+        .llm-title {
+          /* New class for titles */
+          @apply font-bold text-xl text-gray-100 mb-3 mt-1 mx-2; /* Added mt-1 and mx-2 for consistent spacing with llm-text */
+        }
+        .llm-input,
+        .llm-textarea {
+          @apply m-2 p-2 w-full border border-gray-600 rounded-md bg-gray-900 text-gray-200 font-sans text-sm transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50;
+        }
+        .llm-textarea {
+          @apply min-h-[120px];
+        }
+        .llm-container {
+          @apply w-full flex flex-col items-start mb-4 gap-2 p-2;
+        }
+        .llm-row {
+          @apply w-full flex items-center mb-2 gap-2;
+        }
+        .llm-label {
+          @apply mr-1 text-sm text-gray-400;
+        }
+        /* Styles for generated icons to match desktop icons */
+        .icon {
+          @apply w-24 h-28 flex flex-col items-center justify-start text-center m-2 p-2 cursor-pointer select-none rounded-lg transition-colors hover:bg-blue-500/20 focus:bg-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400;
+        }
+        .icon-image {
+          @apply text-5xl mb-2 drop-shadow-sm;
+        }
+        .icon-label {
+          @apply text-sm text-gray-200 font-medium break-words max-w-full leading-tight;
+        }
+
+        /* New styles for SCAR paper and simulation */
+        .paper-content p {
+          @apply mb-4 text-gray-300 leading-relaxed;
+        }
+        .paper-content ul,
+        .paper-content ol {
+          @apply list-inside mb-4 ml-4;
+        }
+        .paper-content ul {
+          @apply list-disc;
+        }
+        .paper-content ol {
+          @apply list-decimal;
+        }
+        .paper-content li {
+          @apply mb-2;
+        }
+        .paper-content pre {
+          @apply bg-gray-950 border border-gray-700 rounded-lg p-4 my-4 text-sm text-cyan-300 overflow-x-auto whitespace-pre-wrap break-words font-mono;
+        }
+        .paper-content strong {
+          @apply font-semibold text-gray-100;
+        }
+        .section-title {
+          @apply font-bold text-2xl text-gray-100 mb-4 mt-6 border-b border-gray-600 pb-2;
+        }
+        .sub-section-title {
+          @apply font-semibold text-xl text-gray-200 mb-3 mt-5;
+        }
+        .simulation-section {
+          @apply border border-gray-700 rounded-lg p-4 my-4 bg-black/20;
+        }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+          "@tailwindcss/browser": "https://esm.sh/@tailwindcss/browser@^4.1.10"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
